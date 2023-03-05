@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+    
+    <div>
+        <span>Price:</span>
+        <input id="price-input" placeholder="Enter an amount...">
+        <button id="btn-a1">Price Less Than</button>
+        <button= id="btn-a2">Clear</button=>
+        </div>
+
+    <script>
+        const cars = [
+        { id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000 },
+        { id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900 },
+        { id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000 },
+        { id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799 },
+        { id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799 }
+        ];
+
+        function makeTable(cars){
+            const tableRows = cars.map(car =>
+                <tr>
+                    <td>${car.id}</td>
+                    <td>${car.year}</td>
+                    <td>${car.make}</td>
+                    <td>${car.model}</td>
+                    <td>${car.price}</td>
+                </tr>
+                )
+
+                const tableRowsAsString = tableRows.join("")
+                document.getElementById("tableBody").innerHTML = tableRowsAsString
+        }
+
+        document.getElementById("btn-a1").onclick = function priceFilter(){
+            const price = document.getElementById("price-input").value
+            const filteredCars = cars.filter(car => car.price < price)
+            makeTable(filteredCars)
+        }
+
+        document.getElementById("btn-a2").onclick = function clear(){
+            document.getElementById("price-input").value = ""
+            makeTable(cars)
+        }
+
+    </script>
+    
+</body>
+</html>

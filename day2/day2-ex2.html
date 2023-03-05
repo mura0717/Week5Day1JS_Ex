@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2, Exercise 2</title>
+
+    <style>
+        .my-div {width: 25px; 
+            height: 25px;
+            background-color:red; 
+            margin:1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Day 2, Exercise 2</h1>
+
+<div id="outer" onclick="handleClick(event)">
+    <div id="first-div" class="my-div"></div>
+    <div id="second-div" class="my-div"></div>
+    <div id="third-div" class="my-div"></div>
+    <div id="fourth-div" class="my-div"></div>
+    <div id="fifth-div" class="my-div"></div>
+    <div id="sixth-div" class="my-div"></div>
+    <div id="seventh-div" class="my-div"></div>
+    <div id="eighth-div" class="my-div"></div>
+    <div id="ninth-div" class="my-div"></div>
+    <div id="tenth-div" class="my-div"></div>
+</div>
+
+<p id="message"></p>
+
+<script>
+    function handleClick(event){
+        let greeting = "Hi from " 
+        document.getElementById("message").innerText = greeting + event.target.id;
+    }
+</script>
+</body>
+</html>
